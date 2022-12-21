@@ -2,15 +2,15 @@
 
 ## Project Collaborators:
 
-Nikkole Hardy - https://github.com/NikkoleAshleigh
-Ledarius Franklin - https://github.com/lederius
-Adrian Diaz - https://github.com/adiaz-banyan
-Allison Kroboth - https://github.com/42-allison-k
-Aryn Davis - https://github.com/aryndavis
-Lillie Schachter - https://github.com/lschachter
-Darien Davis - https://github.com/DDavis-CP
-Owen Arthur - https://github.com/owenarthur
-
+Nikkole Hardy - https://github.com/NikkoleAshleigh    
+Ledarius Franklin - https://github.com/lederius   
+Adrian Diaz - https://github.com/adiaz-banyan   
+Allison Kroboth - https://github.com/42-allison-k   
+Aryn Davis - https://github.com/aryndavis   
+Lillie Schachter - https://github.com/lschachter   
+Darien Davis - https://github.com/DDavis-CP   
+Owen Arthur - https://github.com/owenarthur   
+ 
 ## To start building the project:
 
 Once the user has cloned the repo and dedicate the repo in its respective directory:
