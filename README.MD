@@ -1,9 +1,5 @@
 # Pimpin Pets -Django Project
 
-## Description:
-
-
-
 ## Project Collaborators:
 
 Nikkole Hardy - https://github.com/NikkoleAshleigh
