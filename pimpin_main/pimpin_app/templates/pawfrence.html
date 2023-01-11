@@ -7,20 +7,31 @@
     <title>Pawfrence</title>
 </head>
 <body>
-    
+
     <h1>Pawfrence</h1>
 
-    <img>
+    <!-- <img> -->
     <hr>
-    
-    <ol>
-        <strong><em>What's your pawfrence?:</em></strong>
-        <li>Choose your potential fur baby!</li>
-        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, non.</li>
-        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, non.</li>
-        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, non.</li>
-        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, non.</li>
-    </ol>
+    <container class="message_box">
+
+        <form method="POST" action="{% url 'pawfrence' %}">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" name="create" value="Create" />
+        </form>
+    </container>
+
+
+    <hr>
+
+    <p>Previously Contacted
+
+    </p>
+    <ul>
+        {% for message in conversation %}
+        <li>{{ message.first_name}}</li>
+        {% endfor %}
+    </ul>
 
     <hr>
 
