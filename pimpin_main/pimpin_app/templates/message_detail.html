@@ -8,20 +8,16 @@
 </head>
 <body>
     <h3><a href="{% url 'pawfrence' %}">Back</a></h3>
+    
     <h3><a href="{% url 'pimpin' %}">Home</a></h3>
 
     <h2>Message Detail</h2>
 
-    {{ conversation_object.first_name }}
-    {{ conversation_object.last_name }}
-    <br>
-    {{ conversation_object.user_info }}
-    <br>
-    {{ conversation_object.meeting_time }}
-    <br>
-    {{ conversation_object.meeting_place }}
-
-
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" name="update" value="Update" />
+    </form>
 
 
 

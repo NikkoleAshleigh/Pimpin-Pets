@@ -29,7 +29,7 @@
     </p>
     <ul>
         {% for message in conversation %}
-        <li>{{ message.first_name}}</li>
+        <li><a href="{% url 'message_detail' message.id %}">{{ message.first_name}}</a></li>
         {% endfor %}
     </ul>
 

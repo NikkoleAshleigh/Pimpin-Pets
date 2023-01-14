@@ -46,11 +46,12 @@ class PawfrenceView(View):
 class MessageDetailView(View):
     def get(self, request, message_id):
         message = Message.objects.get(id=message_id)
-        # print(message.id, message.first_name)
+        
+        message_form = MessageForm(instance=message)
 
         html_data = {
             'conversation_object': message,
-            # 'form': message_form,
+            'form': message_form,
         }
 
         return render(
@@ -58,3 +59,11 @@ class MessageDetailView(View):
             template_name='message_detail.html',
             context=html_data,
         )
+
+    def post(self, request, message_id):
+        message = Message.objects.get(id=message_id)
+        message_form = MessageForm(request.POST, instance=message)
+        message_form.save()
+
+        return redirect('pawfrence')
+
