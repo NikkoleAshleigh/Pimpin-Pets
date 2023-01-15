@@ -62,8 +62,14 @@ class MessageDetailView(View):
 
     def post(self, request, message_id):
         message = Message.objects.get(id=message_id)
-        message_form = MessageForm(request.POST, instance=message)
-        message_form.save()
+        
+        if 'update' in request.POST:
+            message_form = MessageForm(request.POST, instance=message)
+            message_form.save()
+        elif 'delete' in request.POST:
+            message.delete()
+            
+        print(request.POST)
 
         return redirect('pawfrence')
 
