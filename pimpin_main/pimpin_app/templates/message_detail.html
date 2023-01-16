@@ -20,7 +20,20 @@
         <input type="submit" name="delete" value="Delete" />
     </form>
 
+    <br>
 
+    <form method="POST">
+        {% csrf_token %}
+        {{ tag_form }}
+        <input type="submit" name="add" value="Add" />
+    </form>
+    
+
+    <ul>
+        {% for tag in tag_list %}
+        <li>{{ tag.body}}</li>
+        {% endfor %}
+    </ul>
 
 
 
