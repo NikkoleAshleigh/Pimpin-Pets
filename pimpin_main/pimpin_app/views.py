@@ -44,14 +44,14 @@ class MessageDetailView(View):
     '''MessageDetailView provides the ability to update and delete individual Message objects from the database'''
     def get(self, request, message_id):
         '''The content required to render a Message object's detail page'''
-        messages = Message.objects.get(id=message_id)
-        message_form = MessageForm()
+        message = Message.objects.get(id=message_id)
+        message_form = MessageForm(message_object=message)
 
-        tags = Tag.objects.filter(message=messages)
-        tag_form = TagForm(message_object=messages)
+        tags = Tag.objects.filter(message=message)
+        tag_form = TagForm(message_object=message)
 
         html_data = {
-            'message_object': messages,
+            'message_object': message,
             'form': message_form,
             'tag_list': tags,
             'tag_form': tag_form,
