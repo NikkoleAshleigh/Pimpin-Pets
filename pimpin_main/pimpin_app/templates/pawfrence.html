@@ -12,14 +12,14 @@
 
     <!-- <img> -->
     <hr>
-    <container class="message_box">
+    
 
-        <form method="POST" action="{% url 'pawfrence' %}">
-            {% csrf_token %}
-            {{ form }}
-            <input type="submit" name="create" value="Create" />
-        </form>
-    </container>
+    <form method="POST" action="{% url 'pawfrence' %}">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" name="create" value="Create" />
+    </form>
+   
 
 
     <hr>
