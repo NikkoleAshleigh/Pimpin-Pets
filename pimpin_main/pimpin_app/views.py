@@ -21,7 +21,7 @@ class PawfrenceView(View):
         messages= Message.objects.all()
 
         html_data = {
-            'conversation': messages,
+            'message_list': messages,
             'form': message_form,
         }
 
@@ -33,6 +33,7 @@ class PawfrenceView(View):
 
     def post(self, request):
         '''This method saves new Tasks to the database before redirecting to the `get` method of the pawfrence page'''
+        print(request.POST)
         message_form = MessageForm(request.POST)
         message_form.save()
 
@@ -44,13 +45,13 @@ class MessageDetailView(View):
     def get(self, request, message_id):
         '''The content required to render a Message object's detail page'''
         message = Message.objects.get(id=message_id)
-        message_form = MessageForm(instance=message)
+        message_form = MessageForm(message_object=message)
 
         tags = Tag.objects.filter(message=message)
         tag_form = TagForm(message_object=message)
 
         html_data = {
-            'conversation_object': message,
+            'message_object': message,
             'form': message_form,
             'tag_list': tags,
             'tag_form': tag_form,
@@ -82,10 +83,10 @@ class MessageDetailView(View):
 
         return redirect('pawfrence')
 
-class FureverView(View):
-    def get(self, request):
-        return render(
-            request=request,
-            template_name='furever.html',
-            context={}
-        )
+# class FureverView(View):
+#     def get(self, request):
+#         return render(
+#             request=request,
+#             template_name='furever.html',
+#             context={}
+#         )
