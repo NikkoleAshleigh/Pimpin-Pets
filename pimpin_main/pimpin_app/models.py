@@ -5,7 +5,7 @@ from django.db import models
 class Message(models.Model):
     '''A message object will have a user id, first and last name field, user info field, and meeting time and place field'''
     # message id will be auto created for me
-    user_id = models.IntegerField()
+    # user_id = models.IntegerField()
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     user_info = models.CharField(max_length=200)
@@ -17,7 +17,8 @@ class Message(models.Model):
         # help_text="Desired location to your Pawfrence",
         max_length=100
     )
-  
+    def __str__(self) -> str:
+        return self.first_name
 
 class Tag(models.Model):
     """Tags that identify or describe a pet"""
