@@ -85,3 +85,24 @@ class MessageDetailView(View):
         # print(request.POST) -used to figure how to specify which button the user clicked
 
         return redirect('pawfrence')
+
+class FureverView(View):
+    def get(self, request):
+        post_form = PostForm()
+        posts = Post.objects.all()
+
+        html_data = {
+            'thread' : posts,
+            'form' : post_form
+        }
+        return render(
+            request=request,
+            template_name='furever.html',
+            context= html_data
+        )
+    
+    def post(self, request):
+        post_form = PostForm(request.POST)
+        post_form.save()
+
+        return redirect('furever')
