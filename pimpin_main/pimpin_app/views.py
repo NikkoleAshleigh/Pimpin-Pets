@@ -45,16 +45,19 @@ class MessageDetailView(View):
     def get(self, request, message_id):
         '''The content required to render a Message object's detail page'''
         message = Message.objects.get(id=message_id)
-        message_form = MessageForm(message_object=message)
+        message_form = MessageForm(instance=message)
 
-        tags = Tag.objects.filter(message=message)
-        tag_form = TagForm(message_object=message)
+        tag = Tag.objects.filter(message_id = message_id)
+        # Creates the view for the form
+        tag_form = TagForm(message_object = message)
+
 
         html_data = {
-            'message_object': message,
+            'message': message,
             'form': message_form,
-            'tag_list': tags,
+            'tag_list': tag,
             'tag_form': tag_form,
+
         }
 
         return render(
@@ -82,11 +85,3 @@ class MessageDetailView(View):
         # print(request.POST) -used to figure how to specify which button the user clicked
 
         return redirect('pawfrence')
-
-# class FureverView(View):
-#     def get(self, request):
-#         return render(
-#             request=request,
-#             template_name='furever.html',
-#             context={}
-#         )

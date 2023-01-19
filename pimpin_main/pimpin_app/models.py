@@ -10,23 +10,20 @@ class Message(models.Model):
     last_name = models.CharField(max_length=50)
     user_info = models.CharField(max_length=200)
     meeting_time = models.DateTimeField(
-        # help_text="YYYY-MM-DD HH:MM",
-        max_length=16
-    )
+        max_length=16)
     meeting_place = models.CharField(
-        # help_text="Desired location to your Pawfrence",
-        max_length=100
-    )
+         max_length=100)
     def __str__(self) -> str:
-        return self.first_name
+        return self.name
+
+
 
 class Tag(models.Model):
     """Tags that identify or describe a pet"""
 
     # Descriptive tag 
-    body = models.TextField(
-        max_length= 25,
-        # help_text="Descriptive tag"
-    )
+    body = models.TextField(max_length= 25,help_text="Descriptive Tag")
     created_at = models.DateTimeField(auto_now_add=True)
-    message = models.ForeignKey(Message, on_delete=models.CASCADE)
+    message = models.ForeignKey(Message, on_delete=models.CASCADE, default=1)
+    def __str__(self):
+        return self.body
