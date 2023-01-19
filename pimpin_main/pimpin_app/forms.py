@@ -25,6 +25,6 @@ class PostForm(ModelForm):
     '''Pull the `user_id`, `first_name`, `last_name`,  `pet_info`, `home_info`, and comlumns from the Message model into a form '''
     class Meta:
         model = Post
-        fields = ['first_name', 'last_name', 'pet_info', 'home_info']
+        fields = ['user_id', 'first_name', 'last_name', 'pet_info', 'home_info']
 
 
