@@ -47,7 +47,14 @@ python manage.py runserver
 ```
 And go to `http://localhost:8000`
 
-Enjoy the site!
+### How to use application:
 
-
-<!-- ---------SCREENSHOTS! -->
+Once user has loaded the sitem, they will initially view the homepage of the Pimpin Pets site. This page displays some images and some simple information about the site and two links as buttons. 
+The first link takes the user to the Furever Homes page at the URL 
+`http://localhost:8000/furever'. 
+The Furever home page displays : .
+The second link takes the user to the What's Your Pawfrence page at the URL 
+`http://localhost:8000/pawfrence/`. 
+The What's Your Pawfrence page displays a form designed to be a message in which the user may fill out the fields given. Once the form has been filled out correctly, the contact's first name in which the form was intended will then be displayed in an unordered list. The user can then, click on any name and will be redirected to the message's detail page at the URL 
+`http://localhost:8000/pawfrence/<user id>`.
+The message datail page displays a form pre-filled with the information given by the user with which they may edit or delete altogether using either the update or delete buttons displayed. There is also a text box in which the user can make their own descriptive tag about the pet in which they are reffering. Then upon clicking the Add button, the descriptive tag is displayed in an unordered list beneath the text bos in which it was written. 
