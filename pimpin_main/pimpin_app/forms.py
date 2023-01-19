@@ -35,3 +35,9 @@ class TagForm(ModelForm):
         # This needs to be created still on a seperate view
         self.instance.message = message
         self.fields['body'].label=''
+
+class PostForm(ModelForm):
+    '''Pull the `user_id`, `first_name`, `last_name`,  `pet_info`, `home_info`, and comlumns from the Message model into a form '''
+    class Meta:
+        model = Post
+        fields = ['user_id', 'first_name', 'last_name', 'pet_info', 'home_info']
