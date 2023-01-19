@@ -16,6 +16,7 @@
     <form method="POST">
         {% csrf_token %}
         {{ form }}
+        <br>
         <input type="submit" name="update" value="Update" />
         <input type="submit" name="delete" value="Delete" />
     </form>
@@ -25,6 +26,7 @@
     <form method="POST">
         {% csrf_token %}
         {{ tag_form }}
+        <br>
         <input type="submit" name="add" value="Add" />
     </form>
     
