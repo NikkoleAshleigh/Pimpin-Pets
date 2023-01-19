@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-from pimpin_app.models import Message, Tag
+from pimpin_app.models import Message, Tag, Post
 
 class MessageForm(ModelForm):
     '''Pull the `user_id`, `first_name`, `last_name`,  `user_info`, `meeting_time`, and  `meeting_place`, comlumns from the Message model into a form '''
@@ -20,3 +20,11 @@ class TagForm(ModelForm):
         super().__init__(*args, **kwargs)
 
         self.instance.message = message
+
+class PostForm(ModelForm):
+    '''Pull the `user_id`, `first_name`, `last_name`,  `pet_info`, `home_info`, and comlumns from the Message model into a form '''
+    class Meta:
+        model = Post
+        fields = ['first_name', 'last_name', 'pet_info', 'home_info']
+
+

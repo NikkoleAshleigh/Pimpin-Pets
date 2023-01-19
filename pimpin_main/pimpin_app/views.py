@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.views import View
-from pimpin_app.models import Message, Tag
-from pimpin_app.forms import MessageForm, TagForm
+from pimpin_app.models import Message, Tag, Post
+from pimpin_app.forms import MessageForm, TagForm, PostForm
 
 # Create your views here.
 class HomeView(View):
@@ -84,8 +84,21 @@ class MessageDetailView(View):
 
 class FureverView(View):
     def get(self, request):
+        post_form = PostForm()
+        posts = Post.objects.all()
+
+        html_data = {
+            'thread' : posts,
+            'form' : post_form
+        }
         return render(
             request=request,
             template_name='furever.html',
-            context={}
+            context= html_data
         )
+    
+    def post(self, request):
+        post_form = PostForm(request.POST)
+        post_form.save()
+
+        return redirect('furever')

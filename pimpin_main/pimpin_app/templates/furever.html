@@ -9,7 +9,11 @@
 <body>
     
     <h1>Furever Homes</h1>
-    <img>
+
+    <hr>
+    <h2>Furbabies Needing Love</h2>
+
+    <!-- <img>
     <hr>
     
     <ol>
@@ -21,10 +25,15 @@
         <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, non.</li>
     </ol>
 
+    <hr> -->
+
     <hr>
-
-    
-
+    <h2>Put one up for adoption</h2>
+    <form method="POST" action="{% url 'furever' %}">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" name="create" value="Create" />
+    </form>
 
 
 

@@ -17,6 +17,7 @@ class Message(models.Model):
         # help_text="Desired location to your Pawfrence",
         max_length=100
     )
+
   
 
 class Tag(models.Model):
@@ -29,3 +30,12 @@ class Tag(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     message = models.ForeignKey(Message, on_delete=models.CASCADE)
+
+class Post(models.Model):
+    '''A message object will have a user id, first and last name field, user info field, and meeting time and place field'''
+    # message id will be auto created for me
+    user_id = models.IntegerField()
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    pet_info = models.CharField(max_length=200)
+    home_info = models.CharField(max_length=200)
