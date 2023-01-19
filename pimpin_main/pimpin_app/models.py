@@ -27,3 +27,12 @@ class Tag(models.Model):
     message = models.ForeignKey(Message, on_delete=models.CASCADE, default=1)
     def __str__(self):
         return self.body
+
+class Post(models.Model):
+    '''A message object will have a user id, first and last name field, user info field, and meeting time and place field'''
+    # message id will be auto created for me
+    user_id = models.ForeignKey(Message, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    pet_info = models.CharField(max_length=200)
+    home_info = models.CharField(max_length=200)
