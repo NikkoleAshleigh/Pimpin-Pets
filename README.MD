@@ -49,7 +49,7 @@ And go to `http://localhost:8000`
 
 ### How to use application:
 
-Once user has loaded the sitem, they will initially view the homepage of the Pimpin Pets site. This page displays some images and some simple information about the site and two links as buttons. 
+Once user has loaded the sitem, they will initially view the homepage of the Pimpin Pets site. This page displays some simple information about the site and two links as buttons. 
 
 <!-- Pimpin homepage image -->
 <img src="pimpin_main\pimpin_app\static\images\README_images\homePage.png" alt="Home Page " title="Pimpin Pets Home Page">
