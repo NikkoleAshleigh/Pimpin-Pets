@@ -84,4 +84,3 @@ Then upon clicking the Add button, the descriptive tag is displayed in an unorde
 <!-- Image of tag added -->
 <img src="pimpin_main\pimpin_app\static\images\README_images\tagAdded.png" alt="Tag Added" title="Successful tag added view"/>
 
-I am adding some random text to make a pr
