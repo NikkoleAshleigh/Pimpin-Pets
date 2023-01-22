@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from django import forms
 
-from pimpin_app.models import Message, Tag
+from pimpin_app.models import Message, Tag, Post
 
 
 class MessageForm(ModelForm):
@@ -31,7 +31,27 @@ class TagForm(ModelForm):
         fields = ['body']
     def __init__(self, *args,**kwargs):
         message = kwargs.pop('message_object')
+        # post = kwargs.pop('post_object')
         super().__init__(*args,**kwargs)
         # This needs to be created still on a seperate view
         self.instance.message = message
+        # self.instance.post = post
         self.fields['body'].label=''
+
+
+class PostForm(ModelForm):
+
+    class Meta:
+        model = Post
+        widgets = {
+            'first_name': forms.TextInput(attrs={'size': 115}),
+            'last_name': forms.TextInput(attrs={'size': 114}),
+            'pet_info': forms.TextInput(attrs={'size': 114}),
+            'home_info': forms.TextInput(attrs={'size': 112}),
+            }
+        fields = [
+            'first_name',
+            'last_name',
+            'pet_info',
+            'home_info',
+            ]

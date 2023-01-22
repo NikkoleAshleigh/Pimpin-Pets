@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Needing Love</title>
+</head>
+<body>
+    
+    <h3><a href="{% url 'pimpin' %}">Home</a></h3>
+
+    <h1>Furbabies Needing Love</h1>
+
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" name="update" value="Update" />
+        <input type="submit" name="delete" value="Delete" />
+    </form>
+
+    <br>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ tag_form }}
+        <input type="submit" name="add" value="Add" />
+    </form>
+
+
+
+
+
+</body>
+</html>
