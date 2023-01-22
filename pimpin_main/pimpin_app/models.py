@@ -32,7 +32,7 @@ class Tag(models.Model):
     """Tags that identify or describe a pet"""
 
     # Descriptive tag 
-    body = models.TextField(max_length= 25)
+    body = models.TextField(max_length= 50)
     created_at = models.DateTimeField(auto_now_add=True)
     message = models.ForeignKey(Message, on_delete=models.CASCADE, default=1)
     # post = models.ForeignKey(Post, on_delete=models.CASCADE, default=1)
