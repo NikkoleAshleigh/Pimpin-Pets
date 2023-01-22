@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.views import View
-from pimpin_app.models import Message, Tag
-from pimpin_app.forms import MessageForm, TagForm
+from pimpin_app.models import Message, Tag, Post
+from pimpin_app.forms import MessageForm, TagForm, PostForm
 
 # Create your views here.
 class HomeView(View):
@@ -87,22 +87,63 @@ class MessageDetailView(View):
         return redirect('pawfrence')
 
 class FureverView(View):
+    
+    '''MessageDetailView provides the ability to update and delete individual Message objects from the database'''
     def get(self, request):
+
+        '''The content required to render a Message object's detail page'''
         post_form = PostForm()
         posts = Post.objects.all()
 
         html_data = {
             'thread' : posts,
             'form' : post_form
+
         }
+
         return render(
             request=request,
             template_name='furever.html',
-            context= html_data
+            context=html_data,
         )
-    
+
     def post(self, request):
         post_form = PostForm(request.POST)
         post_form.save()
+        return redirect('furever')
+
+class NeedingLoveView(View):
+    def get(self, request, post_id):
+        post = Post.objects.get(id=post_id)
+        post_form = PostForm(instance=post)
+        # tag = Tag.objects.filter(post_id = post_id)
+        # tag_form = TagForm(post_object = post)
+
+        html_data = {
+            'post': post,
+            'form': post_form,
+            # 'tag_list' : tag,
+            # 'tag_form' : tag_form
+        }
+
+        return render(
+            request=request,
+            template_name= 'needing_love.html',
+            context=html_data
+        )
+    
+    def post(self, request, post_id):
+        post = Post.objects.get(id=post_id)
+
+        if 'update' in request.POST:
+            post_form = PostForm(request.POST, instance=post)
+            post_form.save()
+        elif 'delete' in request.POST:
+            post.delete()
+        elif 'add' in request.POST:
+            # tag_form = TagForm(request.POST, post_object=post)
+            # tag_form.save()
+
+            return redirect('adoption', post.id)
 
         return redirect('furever')
