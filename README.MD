@@ -60,19 +60,19 @@ The Furever home page displays : .
 
 <!-- Furever Link Image -->
 
-<!-- Pawfrence Link Image -->
-<img src="pimpin_main\pimpin_app\static\images\README_images\pawfrenceLink.png" alt="Pawfrence Page Link" title="What's Your Pawfrence Page Link">
 
 <!-- About Pawfrence Page -->
 The second link takes the user to the What's Your Pawfrence page at the URL 
 `http://localhost:8000/pawfrence/`. 
 
+<!-- Pawfrence Link Image -->
+<img src="pimpin_main\pimpin_app\static\images\README_images\pawfrenceLink.png" alt="Pawfrence Page Link" title="What's Your Pawfrence Page Link">
 
 The What's Your Pawfrence page displays a form designed to be a message in which the user may fill out the fields given. Once the form has been filled out correctly, the contact's first name in which the form was intended will then be displayed in an unordered list. The user can then, click on any name and will be redirected to the message's detail page at the URL 
 `http://localhost:8000/pawfrence/<user id>`.
 
 <!-- Pawfrence Detail Page Image -->
-<img src="pimpin_main\pimpin_app\static\images\README_images\pawfrenceDetailPage.png" alt="Pawfrence Detail Page" title="Pawfrence Detail Page"/>
+<img src="pimpin_main\pimpin_app\static\images\README_images\pawDetailPage.png" alt="Pawfrence Detail Page" title="Pawfrence Detail Page"/>
 
 The message datail page displays a form pre-filled with the information given by the user with which they may edit or delete altogether using either the update or delete buttons displayed. There is also a text box in which the user can make their own descriptive tag about the pet in which they are reffering. Then upon clicking the Add button, the descriptive tag is displayed in an unordered list beneath the text box in which it was written. 
 
