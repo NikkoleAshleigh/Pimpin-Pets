@@ -74,11 +74,12 @@ The What's Your Pawfrence page displays a form designed to be a message in which
 <!-- Pawfrence Detail Page Image -->
 <img src="pimpin_main\pimpin_app\static\images\README_images\pawDetailPage.png" alt="Pawfrence Detail Page" title="Pawfrence Detail Page"/>
 
-The message datail page displays a form pre-filled with the information given by the user with which they may edit or delete altogether using either the update or delete buttons displayed. There is also a text box in which the user can make their own descriptive tag about the pet in which they are reffering. Then upon clicking the Add button, the descriptive tag is displayed in an unordered list beneath the text box in which it was written. 
+The message datail page displays a form pre-filled with the information given by the user, with which they may edit or delete altogether, using either the update or delete buttons displayed. Underneath that form, there is a text box in which the user can make their own descriptive tag about the pet in which they are reffering. 
 
 <!-- Image of adding tag -->
 <img src="pimpin_main\pimpin_app\static\images\README_images\addingTag.png" alt="Pawfrence Detail Page" title="Pawfrence Detail Page"/>
 
-<!-- Image of tag added -->
+Then upon clicking the Add button, the descriptive tag is displayed in an unordered list beneath the text box in which it was written. 
 
+<!-- Image of tag added -->
 <img src="pimpin_main\pimpin_app\static\images\README_images\tagAdded.png" alt="Tag Added" title="Successful tag added view"/>
