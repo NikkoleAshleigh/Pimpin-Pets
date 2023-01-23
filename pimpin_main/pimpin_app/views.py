@@ -140,10 +140,9 @@ class NeedingLoveView(View):
             post_form.save()
         elif 'delete' in request.POST:
             post.delete()
-        elif 'add' in request.POST:
+        # elif 'add' in request.POST:
             # tag_form = TagForm(request.POST, post_object=post)
             # tag_form.save()
-
-            return redirect('adoption', post.id)
+            # return redirect('adoption', post.id)
 
         return redirect('furever')
