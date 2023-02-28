@@ -1,24 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'pawfrence.css' %}">
     <title>Pawfrence</title>
 </head>
 <body>
-
-    <h1>Pawfrence</h1>
-
-    <!-- <img> -->
-    <hr>
+    <div class="topnav">
+        <h1>Pawfrence</h1>
+        <img src="{% static 'images/frenchy3.jpg' %}" alt="French Bulldog Puppy" class="navimg">
+    </div>
     
 
-    <form method="POST" action="{% url 'pawfrence' %}">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" name="create" value="Create" />
-    </form>
+    
+
+    
+    <div class="mycard">
+        <h3>Create Your Message Here</h3>
+        <form method="POST" action="{% url 'pawfrence' %}">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" name="create" value="Create" id="createButton" />
+        </form>
+    </div>
+   
    
 
 
@@ -34,10 +42,8 @@
     </ul>
 
     <hr>
-
+    <h3><a href="{% url 'pimpin' %}">Back to Home</a></h3>
     
-
-
 
 
 </body>
