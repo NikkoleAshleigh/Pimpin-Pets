@@ -1,7 +1,9 @@
 from django.shortcuts import redirect, render
 from django.views import View
-from pimpin_app.models import Message, Tag, Post
+from pimpin_app.models import Message, Tag, Post, Pets
 from pimpin_app.forms import MessageForm, TagForm, PostForm
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 class HomeView(View):
@@ -86,19 +88,25 @@ class MessageDetailView(View):
 
         return redirect('pawfrence')
 
-class FureverView(View):
+class FureverView(View):   
     
     '''MessageDetailView provides the ability to update and delete individual Message objects from the database'''
     def get(self, request):
-
         '''The content required to render a Message object's detail page'''
         post_form = PostForm()
+        post_form = PostForm()
         posts = Post.objects.all()
+        # pets_list = [pet.name for pet in Pets.objects.all()]
+        # pet = [Pets.objects.filter(name='Bugsy')]
+        # tag = Tag.objects.filter(message_id = message_id)
+        # pets_list = Pets.objects.order_by('name')[:1]
+        # pet = [Pets.objects.filter('name')]
+        pets=Pets.objects.all()
 
         html_data = {
             'thread' : posts,
-            'form' : post_form
-
+            'form' : post_form,
+            'pets_list': pets,
         }
 
         return render(
@@ -116,12 +124,14 @@ class NeedingLoveView(View):
     def get(self, request, post_id):
         post = Post.objects.get(id=post_id)
         post_form = PostForm(instance=post)
+        
         # tag = Tag.objects.filter(post_id = post_id)
         # tag_form = TagForm(post_object = post)
 
         html_data = {
             'post': post,
             'form': post_form,
+            
             # 'tag_list' : tag,
             # 'tag_form' : tag_form
         }
@@ -146,3 +156,40 @@ class NeedingLoveView(View):
             # return redirect('adoption', post.id)
 
         return redirect('furever')
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('pimpin')
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})
+
+
+# class SignupView(View):
+#     ''' HomeView functions as the site's homepage, displaying two different pages and a brief introduction of the two'''
+#     def get(self, request):
+#         '''The content required to render the signup page'''
+#         form = UserCreationForm()
+#         return render(
+#             request=request,
+#             template_name='signup.html',
+#             context = {'form': form}
+#         )
+#     def post(self, request):
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             username = form.cleaned_data.get('username')
+#             raw_password = form.cleaned_data.get('password1')
+#             user = authenticate(username=username, password=raw_password)
+#             login(request, user)
+#             return redirect('home')
+#         return redirect('signup')

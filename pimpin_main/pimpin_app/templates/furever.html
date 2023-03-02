@@ -20,7 +20,14 @@
 
     <ul>
         {% for post in thread %}
-        <li><a href="{% url 'adoption' post.id %}">{{ post.first_name}}</a></li>
+        <li><a href="{% url 'adoption' post.id %}">{{ post.first_name }}</a></li>
+        {% endfor %}
+        
+    </ul>
+
+    <ul>
+        {% for pet in pets_list %}
+        <li>{{ pet.name }}</li>
         {% endfor %}
     </ul>
 </body>
