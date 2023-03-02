@@ -1,3 +1,6 @@
 from django.contrib import admin
+from pimpin_app.models import Pets
 
-# Register your models here.
+class PetsAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(Pets)

@@ -44,10 +44,10 @@ class PostForm(ModelForm):
     class Meta:
         model = Post
         widgets = {
-            'first_name': forms.TextInput(attrs={'size': 115}),
-            'last_name': forms.TextInput(attrs={'size': 114}),
-            'pet_info': forms.TextInput(attrs={'size': 114}),
-            'home_info': forms.TextInput(attrs={'size': 112}),
+            'first_name': forms.TextInput(attrs={'size': 45}),
+            'last_name': forms.TextInput(attrs={'size': 45}),
+            'pet_info': forms.TextInput(attrs={'size': 45}),
+            'home_info': forms.TextInput(attrs={'size': 45}),
             }
         fields = [
             'first_name',
