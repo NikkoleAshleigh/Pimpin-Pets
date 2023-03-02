@@ -6,7 +6,9 @@ body {
   letter-spacing: 0.64px;
   color: #585d74;
   padding: 2%;
-  background-color: #ffffff;
+  background-image: url("./images/pawprints.jpg") #ffffff;
+  /* background-color: #ffffff; */
+
 }
 
 .options{

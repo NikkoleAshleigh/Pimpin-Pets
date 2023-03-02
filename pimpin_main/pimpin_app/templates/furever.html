@@ -1,34 +1,48 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'furever.css' %}">
     <title>Furever Homes</title>
 </head>
 <body>
+
+    <div class="topnav">
+        <a href="{% url 'furever' %}">Back</a>    
+        <a href="{% url 'pimpin' %}">Home</a>
+        <h2>Furever Homes</h2>
+    </div>
     
-    <h1>Furever Homes</h1>
-    <hr>
+    <div class="mycard">
+        <h3>Put one up for adoption</h3>
+        <form method="POST" action="{% url 'furever' %}">
+            {% csrf_token %}
+            {{ form }}
+            <br>
+            <input type="submit" name="create" value="Create" id="createButton"/>
+        </form>
+    </div>
+    
+    <div class="tagcard">
+        <h3>Contacts</h3>
+            <ul>
+            {% for post in thread %}
+            <li><a href="{% url 'adoption' post.id %}">{{ post.first_name }}</a></li>
+            {% endfor %}        
+        </ul>
+    </div>
 
-    <h2>Put one up for adoption</h2>
-    <form method="POST" action="{% url 'furever' %}">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" name="create" value="Create" />
-    </form>
+    <div class="tagcard">
+        <h3>Some pets looking for homes!</h3>
+        <ul>
+            {% for pet in pets_list %}
+            <li>{{ pet.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 
-    <ul>
-        {% for post in thread %}
-        <li><a href="{% url 'adoption' post.id %}">{{ post.first_name }}</a></li>
-        {% endfor %}
-        
-    </ul>
-
-    <ul>
-        {% for pet in pets_list %}
-        <li>{{ pet.name }}</li>
-        {% endfor %}
-    </ul>
 </body>
 </html>
