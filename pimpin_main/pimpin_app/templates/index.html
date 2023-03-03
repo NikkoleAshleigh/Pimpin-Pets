@@ -9,7 +9,8 @@
     <title>Pimpin Pets</title>
 </head>
 <body>
-    
+
+
     <div class="section">
         <h1>Pimpin' Pets</h1>
 
@@ -18,73 +19,34 @@
     
         <h4>Welcome to Pimpin' Pets. </h4>
         <p>We are committed to helping you find your new best friend, or make new playmates!</p>
+        <button class="buttons"><a href="{% url 'signup' %}">Click Here</a></button> to signup!
     </div>
 
-    <container class="options">
-        <div class="section">
-            <h2>Furever Homes</h2>
-    
-            <img src="{% static 'images/kitty2.jpg' %}" alt="Kitten on dog's head">
-    
-    
-            <p>
-                Some furbabies are looking for a new home. Are you ready for your complete home?
-            </p>
-            <button class="buttons"><a href="{% url 'furever' %}">Click Here</a></button> to see who wants a home!
-        </div>
-        
-       
-    
-        <div class="section">
-            <h2>What's your Pawference?</h2>
-    
-            <img src="{% static 'images/frenchy1.jpg' %}" alt="French Bulldog Puppy">
-    
-    
-            <p>
-                Looking for a puppy play pal, does your furry friend need one of his own? 
-                Find other animal lovers looking to do the same! Connect and make some new memories and friendships!
-            </p>
-    
-            <button class="buttons"><a href="{% url 'pawfrence' %}">Click Here</a></button> to make some new friends!
-        </div>
 
-    </container>
-
-
-   
     <div class="section">
         <h2>Furever Homes</h2>
-
+    
         <img src="{% static 'images/kitty2.jpg' %}" alt="Kitten on dog's head">
-
-
+    
+    
         <p>
             Some furbabies are looking for a new home. Are you ready for your complete home?
         </p>
         <button class="buttons"><a href="{% url 'furever' %}">Click Here</a></button> to see who wants a home!
-    </div>
+    </div>       
     
-   
-
     <div class="section">
         <h2>What's your Pawference?</h2>
-
-        <img src="{% static 'images/frenchy1.jpg' %}" alt="French Bulldog Puppy">
-
-
+    
+        <img src="{% static 'images/frenchy2.jpg' %}" alt="French Bulldog Puppy">    
+    
         <p>
             Looking for a puppy play pal, does your furry friend need one of his own? 
             Find other animal lovers looking to do the same! Connect and make some new memories and friendships!
         </p>
-
+    
         <button class="buttons"><a href="{% url 'pawfrence' %}">Click Here</a></button> to make some new friends!
     </div>
-    
-
-    
-
-
 
 </body>
 </html>

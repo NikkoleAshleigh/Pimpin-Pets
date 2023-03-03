@@ -42,6 +42,7 @@ class Tag(models.Model):
 
 
 class Pets(models.Model):
+    '''A Pet object will have a type of breed, the species (cat or dog, etc.), user info field, and meeting time and place field'''
     breed = models.CharField(max_length=50)
     species = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
