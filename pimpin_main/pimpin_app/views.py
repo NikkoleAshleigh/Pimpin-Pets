@@ -67,10 +67,10 @@ class MessageDetailView(View):
         )
 
     def post(self, request, message_id):
-        '''This method either updates or deletes existing Message objects in the database (depending on user choice), or adding Tag objects before 
+        '''This method either updates or deletes existing Message objects in the database (depending on user choice), or adding Tag objects before
         redirecting to the 'get' method of the pawfrence view'''
         message = Message.objects.get(id=message_id)
-        
+
         if 'update' in request.POST:
             message_form = MessageForm(request.POST, instance=message)
             message_form.save()
@@ -87,8 +87,8 @@ class MessageDetailView(View):
         return redirect('pawfrence')
 
 class FureverView(View):
-    
-    '''MessageDetailView provides the ability to update and delete individual Message objects from the database'''
+
+    '''FureverView provides the ability to update and delete individual Post objects from the database'''
     def get(self, request):
 
         '''The content required to render a Message object's detail page'''
@@ -131,7 +131,7 @@ class NeedingLoveView(View):
             template_name= 'needing_love.html',
             context=html_data
         )
-    
+
     def post(self, request, post_id):
         post = Post.objects.get(id=post_id)
 

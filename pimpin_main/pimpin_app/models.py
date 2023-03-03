@@ -17,7 +17,7 @@ class Message(models.Model):
         return self.first_name
 
 class Post(models.Model):
-    '''A message object will have a user id, first and last name field, user info field, and meeting time and place field'''
+    '''A post object will have a first and last name field, pet info field, and home info field '''
     # message id will be auto created for me
     # user_id = models.ForeignKey(Message, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
@@ -31,7 +31,7 @@ class Post(models.Model):
 class Tag(models.Model):
     """Tags that identify or describe a pet"""
 
-    # Descriptive tag 
+    # Descriptive tag
     body = models.TextField(max_length= 50)
     created_at = models.DateTimeField(auto_now_add=True)
     message = models.ForeignKey(Message, on_delete=models.CASCADE, default=1)

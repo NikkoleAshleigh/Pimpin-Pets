@@ -40,6 +40,7 @@ class TagForm(ModelForm):
 
 
 class PostForm(ModelForm):
+    '''Pull the `first_name`, `last_name`,  `pet_info`, `home_info`, and  `meeting_place`, comlumns from the Post model into a form '''
 
     class Meta:
         model = Post
