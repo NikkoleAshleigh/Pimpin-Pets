@@ -94,14 +94,8 @@ class FureverView(View):
     def get(self, request):
         '''The content required to render a Message object's detail page'''
         post_form = PostForm()
-        post_form = PostForm()
         posts = Post.objects.all()
-        # pets_list = [pet.name for pet in Pets.objects.all()]
-        # pet = [Pets.objects.filter(name='Bugsy')]
-        # tag = Tag.objects.filter(message_id = message_id)
-        # pets_list = Pets.objects.order_by('name')[:1]
-        # pet = [Pets.objects.filter('name')]
-        pets=Pets.objects.all()
+        pets = Pets.objects.all()
 
         html_data = {
             'thread' : posts,
