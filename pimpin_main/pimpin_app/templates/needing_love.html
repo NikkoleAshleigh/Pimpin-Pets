@@ -1,26 +1,28 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'love.css' %}">
     <title>Needing Love</title>
 </head>
 <body>
     
     <div class="topnav">
         <a href="{% url 'furever' %}">Back</a>
-        <h3><a href="{% url 'pimpin' %}">Home</a></h3>
+        <a href="{% url 'pimpin' %}">Home</a>
         <h1>Furbabies Needing Love</h1>
     </div>
 
-    <div>
+    <div class="mycard">
         <h3>Update or Delete your Post</h3>
         <form method="POST">
             {% csrf_token %}
             {{ form }}
-            <input type="submit" name="update" value="Update" />
-            <input type="submit" name="delete" value="Delete" />
+            <input type="submit" name="update" value="Update" id="updateButton"/>
+            <input type="submit" name="delete" value="Delete" id="deleteButton"/>
         </form>
     </div>
 

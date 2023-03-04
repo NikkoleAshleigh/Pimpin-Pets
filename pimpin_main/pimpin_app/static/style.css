@@ -6,9 +6,8 @@ body {
     letter-spacing: 0.64px;
     color: #585d74;
     padding: 2%;
-    background: url("./images/bluePaws.png");
-    /* background: url('{{ STATIC_URL }}pimpin_app/example.jpg' */
-    background-color: #3b3d79;
+    background: url("./images/bluePaws.png") no-repeat;
+    background-size: cover;
   
 }
 

@@ -5,6 +5,8 @@ body {
   letter-spacing: 0.64px;
   color: #585d74;
   padding: 2%;
+  background: url("./images/bluePaws.png") no-repeat;
+  background-size: cover;
 }
 .topnav {
   background-color:#375BDC;
@@ -19,6 +21,9 @@ body {
 }
 .topnav a:hover, .topnav a:active {
   text-decoration: underline;
+}
+.topnav h2{
+  text-align: center;
 }
 .mycard {
   background-color: #f1f1f1;
