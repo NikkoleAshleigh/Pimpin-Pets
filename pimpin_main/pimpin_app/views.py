@@ -45,7 +45,7 @@ class PawfrenceView(View):
 
 
 class MessageDetailView(View):
-    '''MessageDetailView provides the ability to update and delete individual Message objects from the database'''
+    '''MessageDetailView provides the ability to create individual Message objects from the database'''
     def get(self, request, message_id):
         '''The content required to render a Message object's detail page'''
         message = Message.objects.get(id=message_id)
@@ -91,8 +91,7 @@ class MessageDetailView(View):
         return redirect('pawfrence')
 
 class FureverView(View):   
-    
-    '''MessageDetailView provides the ability to update and delete individual Message objects from the database'''
+    '''FureverView provides the ability to create individual Post objects from the database'''
 
     def get(self, request):
         '''The content required to render a Post object's detail page'''
@@ -114,20 +113,9 @@ class FureverView(View):
 
     def post(self, request):
         post_form = PostForm(request.POST, request.FILES)
-        print(request)
-        print('HELLOO')
         post_form.save()
         instance = post_form.instance
-        print(instance)
-        # if post_form.is_valid():
-        #     name = post_form.cleaned_data.get("name")
-        #     img = post_form.cleaned_data.get("image_field")
-        #     obj = PetsModel.objects.create(
-        #                          title = name,
-        #                          img = img
-        #                          )
-        #     obj.save()
-        #     print(obj)
+
         return redirect('furever')
 
 class NeedingLoveView(View):
