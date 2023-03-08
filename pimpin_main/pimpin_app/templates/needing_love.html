@@ -18,9 +18,10 @@
 
     <div class="mycard">
         <h3>Update or Delete your Post</h3>
-        <form method="POST">
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form }}
+            <img src="{{ post.img.url }}" style="height: 80px;width: 80px;">
             <input type="submit" name="update" value="Update" id="updateButton"/>
             <input type="submit" name="delete" value="Delete" id="deleteButton"/>
         </form>

@@ -54,4 +54,5 @@ class PostForm(ModelForm):
             'last_name',
             'pet_info',
             'home_info',
+            'img',
             ]

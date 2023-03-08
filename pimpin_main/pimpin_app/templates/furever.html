@@ -15,10 +15,17 @@
         <a href="{% url 'pimpin' %}">Home</a>
         <h2>Furever Homes</h2>
     </div>
-    
+    {% if user.is_authenticated %}
+      
+    <li class="nav-item">
+      <a class="nav-link" href="/logout">Logout</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Welcome, {{user.username}}</a>
+    </li>
     <div class="mycard">
         <h3>Put one up for adoption</h3>
-        <form method="POST" action="{% url 'furever' %}">
+        <form method="POST" action="{% url 'furever' %}" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form }}
             <br>
@@ -34,6 +41,16 @@
             {% endfor %}        
         </ul>
     </div>
+
+    {% else %}
+
+    <li class="nav-item">
+      <a class="nav-link" href="/login">Login</a>
+    </li>
+
+    {% endif %}
+    
+
 
     <div class="tagcard">
         <h3>Some pets looking for homes!</h3>
