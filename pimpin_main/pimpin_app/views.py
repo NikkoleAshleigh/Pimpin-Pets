@@ -2,12 +2,14 @@ from django.shortcuts import redirect, render
 from django.views import View
 from pimpin_app.models import Message, Tag, Post, Pets
 from pimpin_app.forms import MessageForm, TagForm, PostForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from django.contrib.auth.forms import AuthenticationForm 
 
-# Create your views here.
+
 class HomeView(View):
-    ''' HomeView functions as the site's homepage, displaying two different pages and a brief introduction of the two'''
+    ''' HomeView functions as the site's homepage, displaying a brief introduction of the two'''
     def get(self, request):
         '''The content required to render the homepage'''
         return render(
@@ -16,7 +18,7 @@ class HomeView(View):
         )
 
 class PawfrenceView(View):
-    '''PawfrenceView functions as the site's meetup message page, listing out all the Message objects in the database displayed as contacts and linking out to each one's detail view'''
+    '''PawfrenceView functions as the site's meetup message page, listing out all the Message objects in the database displayed as contacts and linking out to each contact's detail view'''
     def get(self, request):
         '''The content required to render the pawfrence page'''
         message_form = MessageForm()
@@ -43,7 +45,7 @@ class PawfrenceView(View):
 
 
 class MessageDetailView(View):
-    '''MessageDetailView provides the ability to update and delete individual Message objects from the database'''
+    '''MessageDetailView provides the ability to create individual Message objects from the database'''
     def get(self, request, message_id):
         '''The content required to render a Message object's detail page'''
         message = Message.objects.get(id=message_id)
@@ -89,10 +91,10 @@ class MessageDetailView(View):
         return redirect('pawfrence')
 
 class FureverView(View):   
-    
-    '''MessageDetailView provides the ability to update and delete individual Message objects from the database'''
+    '''FureverView provides the ability to create individual Post objects from the database'''
+
     def get(self, request):
-        '''The content required to render a Message object's detail page'''
+        '''The content required to render a Post object's detail page'''
         post_form = PostForm()
         posts = Post.objects.all()
         pets = Pets.objects.all()
@@ -110,8 +112,10 @@ class FureverView(View):
         )
 
     def post(self, request):
-        post_form = PostForm(request.POST)
+        post_form = PostForm(request.POST, request.FILES)
         post_form.save()
+        instance = post_form.instance
+
         return redirect('furever')
 
 class NeedingLoveView(View):
@@ -166,24 +170,25 @@ def signup(request):
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
 
+def login_request(request):
+	if request.method == "POST":
+		form = AuthenticationForm(request, data=request.POST)
+		if form.is_valid():
+			username = form.cleaned_data.get('username')
+			password = form.cleaned_data.get('password')
+			user = authenticate(username=username, password=password)
+			if user is not None:
+				login(request, user)
+				messages.info(request, f"You are now logged in as {username}.")
+				return redirect("pimpin")
+			else:
+				messages.error(request,"Invalid username or password.")
+		else:
+			messages.error(request,"Invalid username or password.")
+	form = AuthenticationForm()
+	return render(request=request, template_name="login.html", context={"form":form})
 
-# class SignupView(View):
-#     ''' HomeView functions as the site's homepage, displaying two different pages and a brief introduction of the two'''
-#     def get(self, request):
-#         '''The content required to render the signup page'''
-#         form = UserCreationForm()
-#         return render(
-#             request=request,
-#             template_name='signup.html',
-#             context = {'form': form}
-#         )
-#     def post(self, request):
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             username = form.cleaned_data.get('username')
-#             raw_password = form.cleaned_data.get('password1')
-#             user = authenticate(username=username, password=raw_password)
-#             login(request, user)
-#             return redirect('home')
-#         return redirect('signup')
+def logout_request(request):
+	logout(request)
+	messages.info(request, "You have successfully logged out.") 
+	return redirect("pimpin")

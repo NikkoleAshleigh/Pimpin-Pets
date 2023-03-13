@@ -25,6 +25,8 @@ class Post(models.Model):
     last_name = models.CharField(max_length=50)
     pet_info = models.CharField(max_length=200)
     home_info = models.CharField(max_length=200)
+    img = models.ImageField(upload_to = 'posts/', default="missingImage.jpg")
+    # tags = models.ManyToManyField(Tag)
     def __str__(self) -> str:
         return self.first_name
 
@@ -39,6 +41,39 @@ class Tag(models.Model):
     # post = models.ForeignKey(Post, on_delete=models.CASCADE, default=1)
     def __str__(self):
         return self.body
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 
 class Pets(models.Model):
@@ -49,3 +84,9 @@ class Pets(models.Model):
     age = models.CharField(max_length=50)
     adoptees = models.ForeignKey(User, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag)
+    
+
+
+# class Images(models.Model):
+#     image_url = models.CharField(max_length=200)
+#     pet = models.ForeignKey(Pets, on_delete=models.CASCADE)

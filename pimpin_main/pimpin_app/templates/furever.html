@@ -10,15 +10,21 @@
 </head>
 <body>
 
-    <div class="topnav">
-        <a href="{% url 'furever' %}">Back</a>    
+    <div class="topnav">   
         <a href="{% url 'pimpin' %}">Home</a>
         <h2>Furever Homes</h2>
     </div>
-    
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+        <a class="nav-link" href="#">Welcome, {{user.username}}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/logout">Logout</a>
+    </li>
+
     <div class="mycard">
-        <h3>Put one up for adoption</h3>
-        <form method="POST" action="{% url 'furever' %}">
+        <h3>Put a pet(s) up for adoption</h3>
+        <form method="POST" action="{% url 'furever' %}" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form }}
             <br>
@@ -27,22 +33,32 @@
     </div>
     
     <div class="tagcard">
-        <h3>Contacts</h3>
+        <h3>Some pets looking for homes!</h3>
             <ul>
             {% for post in thread %}
-            <li><a href="{% url 'adoption' post.id %}">{{ post.first_name }}</a></li>
+            <li><a href="{% url 'adoption' post.id %}">{{ post.pet_info }}</a></li>
             {% endfor %}        
         </ul>
     </div>
 
-    <div class="tagcard">
+    {% else %}
+
+    <li class="nav-item">
+      <a class="nav-link" href="/login">Login</a>
+    </li>
+
+    {% endif %}
+    
+
+
+    <!-- <div class="tagcard">
         <h3>Some pets looking for homes!</h3>
         <ul>
             {% for pet in pets_list %}
             <li>{{ pet.name }}</li>
             {% endfor %}
         </ul>
-    </div>
+    </div> -->
 
 </body>
 </html>

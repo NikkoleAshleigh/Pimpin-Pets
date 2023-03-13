@@ -17,11 +17,13 @@
         <!-- <img src="pimpin_main\pimpin_app\static\images\frenchy1.jpg" alt="French Bulldog puppy"> -->
         <img src="{% static 'images/frenchy1.jpg' %}" alt="French Bulldog puppy">
     
-        <h4>Welcome to Pimpin' Pets. </h4>
+        <h3>Welcome to Pimpin' Pets. </h3>
         <p>We are committed to helping you find your new best friend, or make new playmates!</p>
         <button class="buttons"><a href="{% url 'signup' %}">Click Here</a></button> to signup!
+        <button class="buttons"><a href="{% url 'login' %}">Click Here</a></button> to login!
+        <p>Please Login or Signup to continue to the site. We look forward to having you!</p>
     </div>
-
+    {% if user.is_authenticated %}
 
     <div class="section">
         <h2>Furever Homes</h2>
@@ -47,6 +49,6 @@
     
         <button class="buttons"><a href="{% url 'pawfrence' %}">Click Here</a></button> to make some new friends!
     </div>
-
+    {% endif %}
 </body>
 </html>
