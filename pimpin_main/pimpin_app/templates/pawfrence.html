@@ -1,43 +1,59 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'pawfrence.css' %}">
     <title>Pawfrence</title>
 </head>
 <body>
+    <div class="topnav">
+        <a class="nav-link" href="{% url 'pimpin' %}">Home</a>
+        <h1>Pawfrence</h1>
+        <img src="{% static 'images/frenchy3.jpg' %}" alt="French Bulldog Puppy" class="navimg">
+        <p>Did you know that Play dates are essential for your doggos? 
+          <br>
+          Playdates encourage your dog to utilize their body language to communicate and be more
+          approachable and polite towards any guests that enter your home.
+        </p>
+    </div>
+    {% if user.is_authenticated %}
+      
+    <li class="nav-item">
+      <a class="nav-link" href="#">Welcome, {{user.username}}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/logout">Logout</a>
+    </li>
 
-    <h1>Pawfrence</h1>
-
-    <!-- <img> -->
-    <hr>
-    
-
-    <form method="POST" action="{% url 'pawfrence' %}">
+    <div class="mycard">
+      <h3>Create Your Message Here</h3>
+      <form method="POST" action="{% url 'pawfrence' %}">
         {% csrf_token %}
         {{ form }}
-        <input type="submit" name="create" value="Create" />
-    </form>
-   
-
-
+        <input type="submit" name="create" value="Create" id="createButton" />
+      </form>
+    </div>
     <hr>
 
-    <p>Previously Contacted
+    <h3 id="header">Previously Contacted</h3>
 
-    </p>
     <ul>
         {% for message in message_list %}
         <li><a href="{% url 'message_detail' message.id %}">{{ message.first_name}}</a></li>
         {% endfor %}
     </ul>
 
-    <hr>
+      {% else %}
 
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+
+      {% endif %}
     
-
-
 
 
 </body>

@@ -1,34 +1,43 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'message.css' %}">
     <title>Message Detail</title>
 </head>
 <body>
-    <h3><a href="{% url 'pawfrence' %}">Back</a></h3>
+    <div class="topnav">
+        <a href="{% url 'pawfrence' %}">Back</a>    
+        <a href="{% url 'pimpin' %}">Home</a>
+        <h2>Messages</h2>
+    </div>
     
-    <h3><a href="{% url 'pimpin' %}">Home</a></h3>
-
-    <h2>Message Detail</h2>
-
-    <form method="POST">
+    <div class="mycard">
+        <h3>Update or Delete your Message</h3>
+        <form method="POST">
         {% csrf_token %}
         {{ form }}
         <br>
-        <input type="submit" name="update" value="Update" />
-        <input type="submit" name="delete" value="Delete" />
-    </form>
+        <input type="submit" name="update" value="Update" id="updateButton"/>
+        <input type="submit" name="delete" value="Delete" id="deleteButton"/>
+        </form>
+    </div>
+
 
     <br>
 
-    <form method="POST">
-        {% csrf_token %}
-        {{ tag_form }}
-        <br>
-        <input type="submit" name="add" value="Add" />
-    </form>
+    <div class="tagcard">
+        <h3>Add Your Tag Here</h3>
+        <form method="POST">
+            {% csrf_token %}
+            {{ tag_form }}
+            <br>
+            <input type="submit" name="add" value="Add" id="addButton"/>
+        </form>
+    </div>
     
 
     <ul>
@@ -37,7 +46,7 @@
         {% endfor %}
     </ul>
 
-    <img src="pimpin_main\pimpin_app\static\images\frenchy3.jpg" alt="French Bulldog Puppy">
+    
 
 
 

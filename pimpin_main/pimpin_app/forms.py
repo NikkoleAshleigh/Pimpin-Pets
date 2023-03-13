@@ -10,11 +10,11 @@ class MessageForm(ModelForm):
     class Meta:
         model = Message
         widgets = {
-            'first_name': forms.TextInput(attrs={'size': 115, 'placeholder': 'First Name'}),
-            'last_name': forms.TextInput(attrs={'size': 114, 'placeholder': 'Last Name'}),
-            'user_info': forms.EmailInput(attrs={'size': 114, 'placeholder': 'Email'}),
-            'meeting_time': forms.DateTimeInput(attrs={'size': 112, 'placeholder': 'YYYY-MM-DD HH:MM'}),
-            'meeting_place': forms.TextInput(attrs={'size': 113, 'placeholder': 'Specific location'}),
+            'first_name': forms.TextInput(attrs={'size': 45, 'placeholder': 'First Name'}),
+            'last_name': forms.TextInput(attrs={'size': 45, 'placeholder': 'Last Name'}),
+            'user_info': forms.EmailInput(attrs={'size': 45, 'placeholder': 'Email'}),
+            'meeting_time': forms.DateTimeInput(attrs={'size': 45, 'placeholder': 'YYYY-MM-DD HH:MM'}),
+            'meeting_place': forms.TextInput(attrs={'size': 45, 'placeholder': 'Specific location'}),
             }
         fields = [
             'first_name',
@@ -45,14 +45,15 @@ class PostForm(ModelForm):
     class Meta:
         model = Post
         widgets = {
-            'first_name': forms.TextInput(attrs={'size': 115}),
-            'last_name': forms.TextInput(attrs={'size': 114}),
-            'pet_info': forms.TextInput(attrs={'size': 114}),
-            'home_info': forms.TextInput(attrs={'size': 112}),
+            'first_name': forms.TextInput(attrs={'size': 45}),
+            'last_name': forms.TextInput(attrs={'size': 45}),
+            'pet_info': forms.TextInput(attrs={'size': 45}),
+            'home_info': forms.TextInput(attrs={'size': 45}),
             }
         fields = [
             'first_name',
             'last_name',
             'pet_info',
             'home_info',
+            'img',
             ]
