@@ -7,9 +7,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm 
 
-# Create your views here.
+
 class HomeView(View):
-    ''' HomeView functions as the site's homepage, displaying two different pages and a brief introduction of the two'''
+    ''' HomeView functions as the site's homepage, displaying a brief introduction of the two'''
     def get(self, request):
         '''The content required to render the homepage'''
         return render(
@@ -18,7 +18,7 @@ class HomeView(View):
         )
 
 class PawfrenceView(View):
-    '''PawfrenceView functions as the site's meetup message page, listing out all the Message objects in the database displayed as contacts and linking out to each one's detail view'''
+    '''PawfrenceView functions as the site's meetup message page, listing out all the Message objects in the database displayed as contacts and linking out to each contact's detail view'''
     def get(self, request):
         '''The content required to render the pawfrence page'''
         message_form = MessageForm()

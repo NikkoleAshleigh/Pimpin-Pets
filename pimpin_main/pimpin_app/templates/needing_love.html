@@ -21,7 +21,8 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form }}
-            <img src="{{ post.img.url }}" style="height: 80px;width: 80px;">
+            <img src="{{ post.img.url }}" style="height: 100px;width: 100px;">
+            <br>
             <input type="submit" name="update" value="Update" id="updateButton"/>
             <input type="submit" name="delete" value="Delete" id="deleteButton"/>
         </form>

@@ -21,14 +21,15 @@
       {% csrf_token %}
       {{ form.as_p }}
       <button class="submit"type="submit">Sign up</button>
+      <button class="login"><a href="{% url 'login' %}">Or click Here</a></button> to Login!
     </form>
   
 
   </div>
 
-  <div>
+  <!-- <div>
     <button class="buttons"><a href="{% url 'login' %}">Or click Here</a></button> to Login!
-  </div>
+  </div> -->
    
 
 </body>

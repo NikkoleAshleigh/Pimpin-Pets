@@ -46,6 +46,7 @@ body {
     margin-bottom: 1;
 }
 
+
 #createButton {
     margin-top: 3%;
     background-color: #375BDC;
@@ -85,4 +86,14 @@ a:link, a:visited {
 .main, .main h1 {
   text-align:center;
   color:#375BDC;
+}
+
+#header{
+  text-align:center;
+  margin-top: 3%;
+  background-color: #375BDC;
+  color: #ffffff;
+  border-color: #375BDC;
+  border-radius: 5px;
+  padding: 3px;
 }
