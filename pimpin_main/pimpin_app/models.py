@@ -19,7 +19,7 @@ class Message(models.Model):
 
 class Post(models.Model):
     '''A Post object will have a user id, first and last name field, pet info field, home info field and image upload field'''
-    # message id will be auto created for me
+
     # user_id = models.ForeignKey(Message, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)

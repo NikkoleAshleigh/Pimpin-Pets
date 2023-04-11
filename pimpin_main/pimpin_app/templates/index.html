@@ -12,79 +12,136 @@
 </head>
 <body>
 
-    <div class="container">
-        <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">
-                <img src="{% static 'images/pets+logo.png' %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-              </a>
-            </div>
-        </nav>
-        <!-- Jumbotron -->
-        <div class="p-5 text-center bg-image" style="background-image: url('{% static 'images/splashPaw.jpg' %}'); background-repeat: no-" >
+  <div class="container" style="background-color: rgba(15, 134, 214, 0.38);">
+
+    <nav class="navbar bg-body fixed-top" style="background-color: #ffffff; padding: 10px; border-radius: .25rem;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'pimpin' %}">
+          <img src="{% static 'images/pets+logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+        </a>
+        <a href="{% url 'furever' %}" style="text-decoration: none;"> Furever</a>
+        <a href="{% url 'pawfrence' %}" style="text-decoration: none;"> Pawfrence</a>
+      </div>
+    </nav>
+       
+    <!-- Jumbotron -->
+    <div class="p-5 text-center bg-image rounded-3"
+      style="background-image: url('{% static 'images/peekers.jpg' %}');background-repeat: no-repeat;border-radius: .25rem;">
+      <div class="mask rounded-3" style="background-color: rgba(177, 196, 208, 0.523);">
+        <div class="d-flex justify-content-center align-items-center h-100">
+          <div class="text-black">
             <h1 class="mb-3">Welcome to Pets+!</h1>
-            <img src="{% static 'images/frenchy1.jpg' %}" alt="French Bulldog puppy" class="mb-3">
-            <h4 class="mb-3">We are committed to helping you find your new best friend, or make new playmates!</h4>
-            <h5 class="mb-3">Please Login or Signup to continue to the site. We look forward to having you!</h5>
-            <a class="btn btn-primary" href="{% url 'signup' %}" role="button">Signup</a>
-            <a class="btn btn-primary" href="{% url 'login' %}" role="button">Login</a>
+            <img src="{% static 'images/pets+logo.png' %}" alt="Pets+ Logo" class="mb-3">
+            <h4 class="mb-4">We are committed to helping you find your new best friend, or make new playmates!</h5>
+            <h5 class="mb-3 .bg-light.bg-gradient">Please Login or Signup to continue to the site. We look forward to having you!</h4>
+            <a class="btn btn-outline-light btn-dark btn-lg m-2" href="{% url 'signup' %}"
+              role="button" >Sign Up</a>
+            <a class="btn btn-outline-light btn-dark btn-lg m-2" href="{% url 'login' %}"
+              role="button">Login</a>
+          </div>
         </div>
-        <!-- Jumbotron -->
+      </div>
+    </div>
 
 
+    <div style="padding: 2px;"></div>
+    <!-- Jumbotron -->
 
+        {% if user.is_authenticated %}
+          <!-- 2nd Jumbotron -->
 
+          
 
+    <div class="p-5 text-center bg-image rounded-3" style="
+          background-image: url('{% static 'images/lookUp.jpg' %}');
+          height: 65vh;">
+      <div class="mask" style="background-color: rgba(177, 196, 208, 0.523);">
+        <div class="d-flex justify-content-center align-items-center h-100">
+          <div class="text-dark">
+            <h1 class="mb-3">Furever Homes</h1>
+            <h4 class="mb-3">Some furbabies are looking for a new home. Are you ready for your complete home?</h4>
+            <a class="btn btn-outline-light btn-dark btn-lg" href="{% url 'furever' %}" role="button">Click Here</a>
+          </div>
+        </div>
+      </div>
+    </div>
+        <!-- 2nd Jumbotron -->
+
+        <div style="padding: 5px;"></div>
         
-          <!-- Background image -->
-          <!-- <div id="intro-example" class="p-5 text-center bg-image"
-            style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');">
-            <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);">
-              <div class="d-flex justify-content-center align-items-center h-100">
-                <div class="text-white">
-                  <h1 class="mb-3">Learn Bootstrap 5 with MDB</h1>
-                  <h5 class="mb-4">
-                    Best & free guide of responsive web design
-                  </h5>
-                  <a class="btn btn-outline-light btn-lg m-2" href="https://www.youtube.com/watch?v=c9B4TPnak1A"
-                    role="button" rel="nofollow" target="_blank">Start tutorial</a>
-                  <a class="btn btn-outline-light btn-lg m-2" href="https://mdbootstrap.com/docs/standard/"
-                    target="_blank" role="button">Download MDB UI KIT</a>
-                </div>
+
+        <!-- 3rd Jumbotron -->
+        <div class="p-5 text-center bg-image rounded-3" style="background-image: url('{% static 'images/petGroup.jpg' %}');
+        background-repeat: no-repeat; height: 75vh;">
+          <div class="mask" style="background-color: rgba(177, 196, 208, 0.523);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <div class="text-dark">
+                <h1 class="mb-3">What's your Pawference?</h1>
+                <h5 class="mb-3">Looking for a puppy play pal, does your furry friend need one of his own? 
+                  Find other animal lovers looking to do the same! Connect and make some new memories and friendships!</h5>
+                  <a class="btn btn-outline-light btn-dark btn-lg" href="{% url 'pawfrence' %}" role="button">Click Here</a>
               </div>
             </div>
-          </div> -->
-          <!-- Background image -->
+          </div>
+          {% endif %}
+        </div>
+        <!-- 3rd Jumbotron -->  
+        
+        
+        <footer class="footer text-center text-dark fixed-bottom" style="background-color: #ffffff;">
+          <!-- Grid container -->
+          <div class="container p-4"></div>
+          <!-- Copyright -->
+          <div class="text-center p-3">
+            <a class="navbar-brand" href="{% url 'pimpin' %}">
+              <img src="{% static 'images/pets+logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+            </a>
+            © 2023 Copyright:
+            <a class="text-dark" href="{% url 'pimpin' %}">Pets+</a>
+          </div>
+          <!-- Copyright -->
+        </footer>
+  </div>
 
 
 
 
-        <div class="section">
+
+
+
+  
+
+    
+<!-- original code -->
+
+<!-- 
+        <div class="section"> -->
             
     
             <!-- <img src="pimpin_main\pimpin_app\static\images\frenchy1.jpg" alt="French Bulldog puppy"> -->
-            <img src="{% static 'images/frenchy1.jpg' %}" alt="French Bulldog puppy">
+            <!-- <img src="{% static 'images/frenchy1.jpg' %}" alt="French Bulldog puppy">
         
             <h3>Welcome to Pets+! </h3>
             <p>We are committed to helping you find your new best friend, or make new playmates!</p>
             <button class="buttons"><a href="{% url 'signup' %}">Click Here</a></button> to signup!
             <button class="buttons"><a href="{% url 'login' %}">Click Here</a></button> to login!
             <p>Please Login or Signup to continue to the site. We look forward to having you!</p>
-        </div>
-        {% if user.is_authenticated %}
-    
-        <div class="section">
-            <h2>Furever Homes</h2>
-        
-            <img src="{% static 'images/kitty2.jpg' %}" alt="Kitten on dog's head">
-        
-        
-            <p>
-                Some furbabies are looking for a new home. Are you ready for your complete home?
-            </p>
-            <button class="buttons"><a href="{% url 'furever' %}">Click Here</a></button> to see who wants a home!
-        </div>       
-        
+        </div> -->
+
+        <!-- <div class="section">
+          <h2>Furever Homes</h2>
+      
+          <img src="{% static 'images/kitty2.jpg' %}" alt="Kitten on dog's head">
+      
+      
+          <p>
+              Some furbabies are looking for a new home. Are you ready for your complete home?
+          </p>
+          <button class="buttons"><a href="{% url 'furever' %}">Click Here</a></button> to see who wants a home!
+      </div> -->
+
+
+      <!--         
         <div class="section">
             <h2>What's your Pawference?</h2>
         
@@ -96,9 +153,6 @@
             </p>
         
             <button class="buttons"><a href="{% url 'pawfrence' %}">Click Here</a></button> to make some new friends!
-        </div>
-        {% endif %}
-    </div>
-
+        </div> -->
 </body>
 </html>

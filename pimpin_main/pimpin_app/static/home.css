@@ -1,9 +1,10 @@
-/* @import "bootstrap/scss/bootstrap"; */
+@import "bootstrap/scss/bootstrap";
 
-.navbar{
-    color: var(--bs-blue-200);
-    background-color: var(--bs-gray-100);
-    border: 1px solid var(--bs-gray-200);
+.p5{
     border-radius: .25rem;
-    background-image: ;
+    padding-top: 10px
+}
+.footer{
+    border-color: rgba(177, 196, 208, 0.523);
+    border-width: 2px;
 }

@@ -10,11 +10,11 @@ class MessageForm(ModelForm):
     class Meta:
         model = Message
         widgets = {
-            'first_name': forms.TextInput(attrs={'size': 45, 'placeholder': 'First Name'}),
-            'last_name': forms.TextInput(attrs={'size': 45, 'placeholder': 'Last Name'}),
-            'user_info': forms.EmailInput(attrs={'size': 45, 'placeholder': 'Email'}),
-            'meeting_time': forms.DateTimeInput(attrs={'size': 45, 'placeholder': 'YYYY-MM-DD HH:MM'}),
-            'meeting_place': forms.TextInput(attrs={'size': 45, 'placeholder': 'Specific location'}),
+            'first_name': forms.TextInput(attrs={'size': 38, 'placeholder': 'First Name'}),
+            'last_name': forms.TextInput(attrs={'size': 38, 'placeholder': 'Last Name'}),
+            'user_info': forms.EmailInput(attrs={'size': 38, 'placeholder': 'Email'}),
+            'meeting_time': forms.DateTimeInput(attrs={'size': 38, 'placeholder': 'YYYY-MM-DD HH:MM'}),
+            'meeting_place': forms.TextInput(attrs={'size': 38, 'placeholder': 'Specific location'}),
             }
         fields = [
             'first_name',
@@ -40,14 +40,14 @@ class TagForm(ModelForm):
 
 
 class PostForm(ModelForm):
-
+    '''Pull the `first_name`, `last_name`,  `pet_info`, and  `home_info` comlumns from the Post model into a form '''
     class Meta:
         model = Post
         widgets = {
-            'first_name': forms.TextInput(attrs={'size': 45}),
-            'last_name': forms.TextInput(attrs={'size': 45}),
-            'pet_info': forms.TextInput(attrs={'size': 45}),
-            'home_info': forms.TextInput(attrs={'size': 45}),
+            'first_name': forms.TextInput(attrs={'size': 38}),
+            'last_name': forms.TextInput(attrs={'size': 38}),
+            'pet_info': forms.TextInput(attrs={'size': 38}),
+            'home_info': forms.TextInput(attrs={'size': 38}),
             }
         fields = [
             'first_name',

@@ -10,18 +10,57 @@
 </head>
 <body>
 
-  <div class="topnav">
-    <h1>Welcome to Pimpin' Pets</h1>
-    <p>Please login to continue</p>
+  <div class="container">
+
+    <nav class="navbar bg-body fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'pimpin' %}">
+          <img src="{% static 'images/pets+logo.png' %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+        </a>
+        <div class="topnav">
+          <h1>Welcome to Pimpin' Pets</h1>
+          <p>Please login to continue</p>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- card -->
+    <div class="card text-center">
+      <div class="card-header">
+        <h2>Log In</h2>
+      </div>
+      <div class="card-body text-center">
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <div class="card-footer text-center">
+            <button class="submit" type="submit">Log In</button> OR
+          <button class="submit"><a href="{% url 'signup' %}"></a>Sign Up</button>
+          </div>
+        </form>
+        
+        
+      </div>
+      
+    </div>
+
   </div>
 
-  <div class="card">
+
+
+
+
+
+<!-- original code -->
+
+
+  <!-- <div class="card">
     <h2>Log In</h2>
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
       <button class="submit"type="submit">Log In</button>
+      <button class="login"><a href="{% url 'signup' %}">Or click Here</a></button> to Signup!
     </form>
-    <button class="login"><a href="{% url 'signup' %}">Or click Here</a></button> to Signup!
-  </div>
+  </div> -->
 

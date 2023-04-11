@@ -9,35 +9,44 @@
     <title>Message Detail</title>
 </head>
 <body>
-    <div class="topnav">
-        <a href="{% url 'pawfrence' %}">Back</a>    
-        <a href="{% url 'pimpin' %}">Home</a>
-        <h2>Messages</h2>
+
+    <div class="container">
+        <nav class="navbar bg-body fixed-top" style="background-color: #ffffff; padding: 10px; border-radius: .25rem;">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'pimpin' %}">
+                <img src="{% static 'images/pets+logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+              </a>
+              <a href="{% url 'pawfrence' %}" style="text-decoration: none; padding-left: 20px; color: black;"> Back</a>
+            </div>
+          </nav>
+    </div>
+    <div class="mask rounded-3" style="background-color: rgba(177, 196, 208, 0.523);padding: 10px">
+    
+        <div class="mycard">
+            <h3>Update or Delete your Message</h3>
+            <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <br>
+            <input type="submit" name="update" value="Update" id="updateButton"/>
+            <input type="submit" name="delete" value="Delete" id="deleteButton"/>
+            </form>
+        </div>
+
+    </div>
+    <br>
+    <div class="mask rounded-3" style="background-color: rgba(177, 196, 208, 0.523);padding: 10px">
+        <div class="tagcard">
+            <h3>Add Your Tag Here</h3>
+            <form method="POST">
+                {% csrf_token %}
+                {{ tag_form }}
+                <br>
+                <input type="submit" name="add" value="Add" id="addButton"/>
+            </form>
+        </div>
     </div>
     
-    <div class="mycard">
-        <h3>Update or Delete your Message</h3>
-        <form method="POST">
-        {% csrf_token %}
-        {{ form }}
-        <br>
-        <input type="submit" name="update" value="Update" id="updateButton"/>
-        <input type="submit" name="delete" value="Delete" id="deleteButton"/>
-        </form>
-    </div>
-
-
-    <br>
-
-    <div class="tagcard">
-        <h3>Add Your Tag Here</h3>
-        <form method="POST">
-            {% csrf_token %}
-            {{ tag_form }}
-            <br>
-            <input type="submit" name="add" value="Add" id="addButton"/>
-        </form>
-    </div>
     
 
     <ul>
@@ -47,7 +56,19 @@
     </ul>
 
     
-
+    <footer class="footer text-center text-dark fixed-bottom" style="background-color: #ffffff;">
+        <!-- Grid container -->
+        <div class="container p-4"></div>
+        <!-- Copyright -->
+        <div class="text-center p-3">
+          <a class="navbar-brand" href="{% url 'pimpin' %}">
+            <img src="{% static 'images/pets+logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+          </a>
+          © 2023 Copyright:
+          <a class="text-dark" href="{% url 'pimpin' %}">Pets+</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
 
 
 </body>
