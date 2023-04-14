@@ -10,20 +10,33 @@
 </head>
 <body>
 
-  <div class="topnav">
-    <h1>Welcome to Pimpin' Pets</h1>
-    <p>Please login to continue</p>
-  </div>
+  <div class="container">
+    <nav class="navbar bg-body fixed-top" style="background-color: #ffffff; padding: 10px; border-radius: .25rem;"></nav>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'pimpin' %}">
+          <img src="{% static 'images/pets+logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+        </a>
+        <div class="topnav">
+          <h1>Welcome to Pimpin' Pets</h1>
+          <p>Please login to continue</p>
+        </div>
+      </div>
+    </nav>
 
-  <div class="card">
-    <h2>Sign up</h2>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button class="submit"type="submit">Sign up</button>
-      <button class="login"><a href="{% url 'login' %}">Or click Here</a></button> to Login!
-    </form>
+    
   
+    <div class="card">
+      <h2>Sign up</h2>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="text-center"></div>
+        <button class="submit"type="submit">Sign up</button> OR
+        <button class="login"><a href="{% url 'login' %}"></a>Login</button>
+      </form>
+    
+  
+    </div>
 
   </div>
 

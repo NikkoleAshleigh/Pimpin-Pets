@@ -18,8 +18,8 @@ class Message(models.Model):
         return self.first_name
 
 class Post(models.Model):
-    '''A message object will have a user id, first and last name field, user info field, and meeting time and place field'''
-    # message id will be auto created for me
+    '''A Post object will have a user id, first and last name field, pet info field, home info field and image upload field'''
+
     # user_id = models.ForeignKey(Message, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -73,7 +73,7 @@ class Tag(models.Model):
 
 
 
-    
+
 
 
 class Pets(models.Model):

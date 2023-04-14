@@ -9,26 +9,48 @@
     <title>Needing Love</title>
 </head>
 <body>
+    <div class="container">
+        <nav class="navbar bg-body fixed-top" style="background-color: #ffffff; padding: 10px; border-radius: .25rem;">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'pimpin' %}">
+                <img src="{% static 'images/pets+logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+              </a>
+              <a href="{% url 'furever' %}" style="text-decoration: none; padding-left: 20px; color: black;"> Back</a>
+            </div>
+          </nav>
+    </div>
     
-    <div class="topnav">
-        <a href="{% url 'furever' %}">Back</a>
-        <a href="{% url 'pimpin' %}">Home</a>
-        <h1>Furbabies Needing Love</h1>
+    <div class="mask rounded-3" style="background-color: rgba(177, 196, 208, 0.523);padding: 10px">
+        <div class="container">
+            <div class="mycard">
+                <h3>Update or Delete your Post</h3>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form }}
+                    <img src="{{ post.img.url }}" style="height: 100px;width: 100px;">
+                    <br>
+                    <input type="submit" name="update" value="Update" id="updateButton"/>
+                    <input type="submit" name="delete" value="Delete" id="deleteButton"/>
+                </form>
+            </div>
+        </div>
     </div>
 
-    <div class="mycard">
-        <h3>Update or Delete your Post</h3>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form }}
-            <img src="{{ post.img.url }}" style="height: 100px;width: 100px;">
-            <br>
-            <input type="submit" name="update" value="Update" id="updateButton"/>
-            <input type="submit" name="delete" value="Delete" id="deleteButton"/>
-        </form>
-    </div>
 
     <br>
+    <footer class="footer text-center text-dark fixed-bottom" style="background-color: #ffffff;">
+        <!-- Grid container -->
+        <div class="container p-4"></div>
+        <!-- Copyright -->
+        <div class="text-center p-3">
+          <a class="navbar-brand" href="{% url 'pimpin' %}">
+            <img src="{% static 'images/pets+logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+          </a>
+          © 2023 Copyright:
+          <a class="text-dark" href="{% url 'pimpin' %}">Pets+</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
 <!-- need to link tags in order to get add to work properly -->
     <!-- <form method="POST">
         {% csrf_token %}

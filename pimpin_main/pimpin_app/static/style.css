@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+
+
+
+
+
+
+/* @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
 body {
     align-items: center;
     margin:0;
@@ -15,12 +21,12 @@ body {
     background-color: #f1f1f1;
     margin: 40px auto;
     /* width: 350px; */
-    border-radius: 5px;
+    /* border-radius: 5px;
     box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23); 
     padding: 20px;
-}
+} */
 
-.section h1{
+/* .section h1{
     background-image: linear-gradient(to bottom, #375BDC, #4D70EF);
     background-color:#375BDC;
     color:#ffffff;
@@ -46,5 +52,5 @@ body {
     padding: 3px;
     font-size: 15px;
     text-decoration: none !important;
-}
+} */ 
 

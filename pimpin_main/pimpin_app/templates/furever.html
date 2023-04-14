@@ -6,48 +6,113 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'furever.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <title>Furever Homes</title>
 </head>
 <body>
 
-    <div class="topnav">   
-        <a href="{% url 'pimpin' %}">Home</a>
-        <h2>Furever Homes</h2>
-    </div>
-    {% if user.is_authenticated %}
-    <li class="nav-item">
-        <a class="nav-link" href="#">Welcome, {{user.username}}</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/logout">Logout</a>
-    </li>
-
-    <div class="mycard">
-        <h3>Put a pet(s) up for adoption</h3>
-        <form method="POST" action="{% url 'furever' %}" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form }}
-            <br>
-            <input type="submit" name="create" value="Create" id="createButton"/>
-        </form>
-    </div>
     
-    <div class="tagcard">
-        <h3>Some pets looking for homes!</h3>
-            <ul>
-            {% for post in thread %}
-            <li><a href="{% url 'adoption' post.id %}">{{ post.pet_info }}</a></li>
-            {% endfor %}        
-        </ul>
-    </div>
+        
+        <nav class="navbar bg-body fixed-top rounded-3" style="background-color: #ffffff; padding: 10px; border-radius: .25rem; color: black;">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'pimpin' %}">
+                <img src="{% static 'images/pets+logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+              </a>
+              <a href="#" style="font-size: x-large;"> Furever Homes</a>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="facts" style="text-align:center;border-radius: .25rem;background-color: #375BDC; color: #ffffff;">
+                <h4>Did you know?</h4>
+                <img class="img-fluid" src="{% static 'images/petGroup5.jpg' %}" alt="Group of pets" style="padding: 4px; height: 50vh;">
+            </div>
+        </div>
 
-    {% else %}
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="#">Welcome, {{user.username}}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+        </li>
 
-    <li class="nav-item">
-      <a class="nav-link" href="/login">Login</a>
-    </li>
+        <div class="container-fluid">
+            <div class="facts" style="text-align:center;border-radius: .25rem;background-color: #375BDC; color: #ffffff;">
+                <h4>Did you know?</h4>
+                <p>Caring for an animal can help children grow up more secure and active. Pets also provide valuable companionship for older adults. </p> 
+                <img class="img-fluid" src="{% static 'images/petGroup4.jpg' %}" alt="Group of pets" style="padding: 4px;">
+            </div>
+        </div>
+        
 
-    {% endif %}
+        <div class="mycard">
+            <h4 style="text-align: center;color: #ffffff;">Put a pet(s) up for adoption</h4>
+            <form method="POST" action="{% url 'furever' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form }}
+                <br>
+                <input type="submit" name="create" value="Create" id="createButton"/>
+            </form>
+        </div>
+
+
+        <div class="container-fluid">
+            <div class="facts" style="text-align:center;border-radius: .25rem;background-color: #375BDC; color: #ffffff;">
+                <h4>Did you know?</h4>
+                <p>The  emotional, social and physical contributions and benefits of pets and companion animals are indispensable for humans.</p> 
+                <img class="img-fluid" src="{% static 'images/petGroup2.jpg' %}" alt="Group of pets" style="padding: 4px;">
+            </div>
+        </div>
+        
+        
+        <div class="tagcard">
+            <h4 style="text-align: center;color: #ffffff;">Some pets looking for homes!</h4>
+                <ul>
+                {% for post in thread %}
+                <li><a href="{% url 'adoption' post.id %}">{{ post.pet_info }}</a></li>
+                {% endfor %}        
+            </ul>
+        </div>
+    
+        <div class="container-fluid">
+            <div class="facts" style="text-align:center;border-radius: .25rem;background-color: #375BDC; color: #ffffff; padding-bottom: 25px;">
+               
+                <img class="img-fluid" src="{% static 'images/petGroup3.jpg' %}" alt="Group of pets" style="padding: 10px;">
+                <p>A person's mood is improved. Pets decrease the feeling of loneliness and isolation because they offer camaraderie.</p> 
+                <h1>Did you know?</h1>
+            </div>
+        </div>
+
+        {% else %}
+    
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+    
+        {% endif %}
+
+        <footer class="footer text-center text-dark fixed-bottom" style="background-color: #ffffff;">
+            <!-- Grid container -->
+            <div class="container p-4"></div>
+            <!-- Copyright -->
+            <div class="text-center p-3">
+              <a class="navbar-brand" href="{% url 'pimpin' %}">
+                <img src="{% static 'images/pets+logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+              </a>
+              © 2023 Copyright:
+              <a class="text-dark" href="{% url 'pimpin' %}">Pets+</a>
+            </div>
+            <!-- Copyright -->
+          </footer>
+   
+
+        
+
+   
+    
+
+    
     
 
 
