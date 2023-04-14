@@ -9,7 +9,7 @@ from django.contrib.auth.forms import AuthenticationForm
 
 
 class HomeView(View):
-    ''' HomeView functions as the site's homepage, displaying a brief introduction of the two'''
+    ''' HomeView functions as the site's homepage, displaying a brief introduction of the two other pages'''
     def get(self, request):
         '''The content required to render the homepage'''
         return render(
@@ -18,12 +18,13 @@ class HomeView(View):
         )
 
 class PawfrenceView(View):
-    '''PawfrenceView functions as the site's meetup message page, listing out all the Message objects in the database displayed as contacts and linking out to each contact's detail view'''
+    '''PawfrenceView functions as the site's meetup message page, listing out all the Message objects in the database displayed as contacts and linking out to each contact's detail view.
+    This also provides the ability to create individual Mesaage abjects from the database'''
     def get(self, request):
         '''The content required to render the pawfrence page'''
         message_form = MessageForm()
         messages= Message.objects.all()
-
+        
         html_data = {
             'message_list': messages,
             'form': message_form,
@@ -45,7 +46,7 @@ class PawfrenceView(View):
 
 
 class MessageDetailView(View):
-    '''MessageDetailView provides the ability to create individual Message objects from the database'''
+    '''MessageDetailView provides the ability to update or delete individual Message objects from the database'''
     def get(self, request, message_id):
         '''The content required to render a Message object's detail page'''
         message = Message.objects.get(id=message_id)
